@@ -1958,7 +1958,7 @@ int8_t Wasp3G::check(uint16_t time){
 	
 	do{	
 		// Sends the command and waits for the answer (0,1 for home network and 0,5 for roaming)
-		answer = sendCommand2("+CREG?", "+CREG: 0,1", "+CREG: 0,5");
+		answer = sendCommand2("+CREG?", "+CREG:0,1", "+CREG:0,5");
 	}while ((answer == 0) && ((millis() - previous) < (time * 1000)));
 	
 	if ((answer == 0) || ((millis() - previous) > (time * 1000)))
@@ -6976,7 +6976,6 @@ int8_t Wasp3G::QueryDomainfromIP(const char* ip){
 	
 	if (answer == 1)
 	{	
-		serialRead(_socket);
 		serialRead(_socket);
 		
 		if (serialRead(_socket) == '1')
